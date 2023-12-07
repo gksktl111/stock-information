@@ -1,16 +1,215 @@
-.anime {
+* {
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+.main__section {
+  display: flex;
+  width: 100%;
+  height: 155rem;
+
+  justify-content: center;
+}
+
+.main__img {
+  position: absolute;
+  top: 3rem;
+}
+
+.main__page__top {
+  /* background-color: blue; */
+  width: 62rem;
+  z-index: 1;
+}
+
+.main__top {
+  width: 62rem;
+  height: 25rem;
+
+  /* background-color: aqua; */
+  margin: 200px 0 1350px 10px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1000ms ease-in-out;
+
+  z-index: 2;
+}
+
+.main__top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.top__title {
+  font-size: 3.4rem;
+}
+
+.highlight {
+  color: red;
+}
+
+.description__main {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  color: rgb(40, 40, 40);
+
+  margin: 30px 0 40px 5px;
+}
+
+.btn__wrap {
+  display: flex;
+
+  width: 27rem;
+
+  justify-content: space-between;
+}
+.btn__start,
+.btn__more {
+  width: 200px;
+  height: 50px;
+
+  border: 1px solid red;
+  border-radius: 10px;
+
+  background-color: red;
+
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+
+  cursor: pointer;
+}
+
+.btn__more {
+  background-color: white;
+  color: red;
+}
+
+.main__bottom {
+  position: relative; /* 기본 위치 설정 */
+  width: 62rem;
+  height: 30rem;
+  z-index: 0; /* .main__bottom이 .main__top 아래로 가도록 설정 */
+}
+
+.connect__line {
+  border-left: 3px solid rgb(155, 155, 155); /* 세로선 스타일 지정 */
+  height: 100px; /* 세로선의 높이 지정 (원하는 높이로 조절) */
+  margin: 0 50% 0 50%; /* 좌우 여백 지정 (원하는 여백으로 조절) */
+}
+
+.animation__content {
+  width: 50rem;
+  height: 15rem;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1000ms ease-in-out;
+
+  margin: auto;
+
+  z-index: 2;
+}
+
+.animation__content.active1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bottom__title {
+  font-size: 3.4rem;
+
+  margin: 50px 0 20px 0;
+  text-align: center;
+}
+
+.bottom__description {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.main__feature {
+  width: 100%;
+  height: 200rem;
+  background-color: #fef9f9;
+}
+
+.container {
   position: relative;
-  width: 600px;
-  height: 400px;
-  background-color: aqua;
+  width: 62rem;
+  height: 80rem;
+
   top: 100px;
-  left: 400px;
+  margin: auto;
+
+  background-color: #3ad1fb;
+}
+
+.wrapper__animation__content {
+  display: flex;
+  width: 80%;
+  height: 250px;
+  /* background-color: #3af05f; */
+
+  margin-left: 10%;
+
   opacity: 0;
   transform: translateY(20px);
   transition: all 1000ms ease-in-out;
 }
 
-.anime.visible {
-  opacity: 1;
+.wrapper__animation__content.active2 {
   transform: translateY(0);
+  opacity: 1;
+}
+
+.order {
+  font-size: 7rem;
+  color: red;
+}
+
+.content {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.title {
+  font-size: 3.3rem;
+  color: #484848;
+}
+
+.bold {
+  color: black;
+  font-weight: 600;
+}
+
+.description {
+  margin-top: 20px;
+  margin-left: 5px;
+
+  font-size: 1.2rem;
+  color: #757575;
+}
+
+.detail__feature {
+  width: 100%;
+  height: 70rem;
+  background-color: #faf551;
+}
+
+.customer__review {
+  width: 100%;
+  height: 70rem;
+  background-color: #3af05f;
+}
+.lead__in__service {
+  width: 100%;
+  height: 70rem;
+  background-color: #f13fe5;
+}
+
+.footer {
+  width: 100%;
+  height: 70rem;
+  background-color: #3ad1fb;
 }
