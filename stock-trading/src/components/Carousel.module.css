@@ -1,0 +1,17 @@
+.slider__container {
+  width: 70rem;
+
+  background-color: aqua;
+
+  margin: auto;
+  border: solid 1px;
+}
+
+.card {
+  text-align: center;
+}
+
+.card__img {
+  width: 600px;
+  margin: auto;
+}

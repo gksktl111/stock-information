@@ -48,7 +48,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.home}>
       <section className={styles.main__section}>
         <div className={styles.main__img}>
           <img

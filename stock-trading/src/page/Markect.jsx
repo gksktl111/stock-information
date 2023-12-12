@@ -1,5 +1,10 @@
 import React from 'react';
+import Carousel from '../components/Carousel';
 
 export default function Markect() {
-  return <div>마켓</div>;
+  return (
+    <div>
+      <Carousel />
+    </div>
+  );
 }
