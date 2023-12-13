@@ -1,17 +1,31 @@
 .slider__container {
-  width: 70rem;
-
-  background-color: aqua;
+  width: 50rem;
+  height: 18rem;
 
   margin: auto;
-  border: solid 1px;
 }
 
 .card {
   text-align: center;
 }
 
-.card__img {
-  width: 600px;
+.card__body {
+  height: 15rem;
+  width: 30rem;
+
   margin: auto;
+  margin-top: 22px;
+  padding: 20px;
+
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.userReview {
+  height: 80%;
+  font-size: 1.6rem;
+}
+
+.userName {
+  font-size: 1.2rem;
 }

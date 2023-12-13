@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import Carousel from '../components/Carousel';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,6 +14,7 @@ export default function Home() {
   const [isActive7, setActive7] = useState(false);
   const [isActive8, setActive8] = useState(false);
   const [isActive9, setActive9] = useState(false);
+  const [isActive10, setActive10] = useState(false);
 
   const [scrollY, setScrollY] = useState(0);
 
@@ -35,6 +36,7 @@ export default function Home() {
     setActive7(currentScrollY >= 4100);
     setActive8(currentScrollY >= 4800);
     setActive9(currentScrollY >= 6000);
+    setActive10(currentScrollY >= 7100);
   };
 
   useEffect(() => {
@@ -292,7 +294,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-          {scrollY}
         </div>
       </section>
       <section
@@ -306,24 +307,52 @@ export default function Home() {
           <span className={styles.highlight}>주체적 개인투자자들</span>.
         </h2>
         <div className={styles.review__slider}>
-          <div className={styles.slider__container}>
-            <div className={styles.aside__prev}>
-              <button className={styles.btn__prev}>
-                <FaChevronLeft />
-              </button>
-            </div>
-            <div className={styles.slidier}>여기는 메인 슬라이더</div>
-            <div className={styles.aside__next}>
-              <button className={styles.btn__next}>
-                <FaChevronRight />
-              </button>
-            </div>
+          <Carousel />
+        </div>
+        <div className={styles.rating__container}>
+          <div className={styles.rating__box__apple}>
+            <p className={styles.rating__title}>애플 앱스토어</p>
+            <p className={styles.rating}>
+              <span className={styles.bold}>4.8</span>
+              /5.0
+            </p>
+            <img src='/img/apple_rating.png' alt='rating' />
           </div>
-          <div className={styles.btn__container}>여기는 버튼</div>
+          <div className={styles.rating__box__google}>
+            <p className={styles.rating__title}>구글 플레이스토어</p>
+            <p className={styles.rating}>
+              <span className={styles.bold}>4.9</span>
+              /5.0
+            </p>
+            <img src='/img/google_rating.png' alt='rating' />
+          </div>
+          <div className={styles.rating__box__naver}>
+            <p className={styles.rating__title}>네이버 웨일스토어</p>
+            <p className={styles.rating}>
+              <span className={styles.bold}>5.0</span>
+              /5.0
+            </p>
+            <img src='/img/naver_rating.png' alt='rating' />
+          </div>
         </div>
       </section>
-      <section className={styles.lead__in__service}>asd</section>
-      <footer className={styles.footer}>asd</footer>
+      <section className={styles.lead__in__service}>
+        <div
+          className={`${styles.lead__in__service__container} ${
+            isActive10 ? styles.active : ''
+          }`}
+        >
+          <h2 className={styles.service__title}>
+            알파스퀘어와 함께
+            <br />
+            스마트한 투자를 시작하세요.
+          </h2>
+          <button className={styles.btn__start}>무료로 시작하기</button>
+        </div>
+      </section>
+      <footer className={styles.footer}>
+        <div className={styles.footer__container}>여기는 footer 입니다.</div>
+      </footer>
     </div>
   );
 }
