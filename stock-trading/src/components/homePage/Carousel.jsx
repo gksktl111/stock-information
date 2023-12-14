@@ -4,15 +4,53 @@ import styles from './Carousel.module.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+function PrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: 'flex',
+        background: 'gray',
+        height: '150px',
+        width: '30px',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function NextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: 'flex',
+        background: 'gray',
+        height: '150px',
+        width: '30px',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
 export default function Carousel() {
   const settings = {
-    infinite: true,
+    dots: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    pauseOnHover: true,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
   };
 
   return (

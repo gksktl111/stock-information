@@ -17,13 +17,19 @@
   margin-top: 22px;
   padding: 20px;
 
+  border: solid 1px rgb(210, 210, 210);
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .userReview {
+  display: flex;
+
   height: 80%;
   font-size: 1.6rem;
+
+  align-items: center;
+  justify-content: center;
 }
 
 .userName {

@@ -1,42 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Home.module.css';
-import Carousel from '../components/Carousel';
+import Carousel from '../components/homePage/Carousel';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
 
-  const [isActive1, setActive1] = useState(false);
-  const [isActive2, setActive2] = useState(false);
-  const [isActive3, setActive3] = useState(false);
-  const [isActive4, setActive4] = useState(false);
-  const [isActive5, setActive5] = useState(false);
-  const [isActive6, setActive6] = useState(false);
-  const [isActive7, setActive7] = useState(false);
-  const [isActive8, setActive8] = useState(false);
-  const [isActive9, setActive9] = useState(false);
-  const [isActive10, setActive10] = useState(false);
+  // y의 높이에 따른 엑티브
+  const sectionPositions = [
+    1400, 1800, 2100, 2900, 3200, 3900, 4100, 4800, 6000, 7100,
+  ];
+  const [activeSections, setActiveSections] = useState(
+    Array(sectionPositions.length).fill(false)
+  );
 
-  const [scrollY, setScrollY] = useState(0);
+  // const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     // 컴포넌트가 마운트되었을 때 실행되는 코드
+
     setIsVisible(true);
   }, []);
 
+  // 스크롤 엑티브 관리
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-    setScrollY(currentScrollY);
+    // setScrollY(currentScrollY);
 
-    setActive1(currentScrollY >= 1400);
-    setActive2(currentScrollY >= 1800);
-    setActive3(currentScrollY >= 2100);
-    setActive4(currentScrollY >= 2900);
-    setActive5(currentScrollY >= 3200);
-    setActive6(currentScrollY >= 3900);
-    setActive7(currentScrollY >= 4100);
-    setActive8(currentScrollY >= 4800);
-    setActive9(currentScrollY >= 6000);
-    setActive10(currentScrollY >= 7100);
+    const newActiveSections = sectionPositions.map(
+      (position) => currentScrollY >= position
+    );
+    setActiveSections(newActiveSections);
   };
 
   useEffect(() => {
@@ -47,18 +40,11 @@ export default function Home() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  });
 
   return (
     <div className={styles.home}>
       <section className={styles.main__section}>
-        <div className={styles.main__img}>
-          <img
-            className={styles.bg__img}
-            src='http://localhost:3000/img/bg.png'
-            alt='ddd'
-          />
-        </div>
         <div className={styles.main__page__top}>
           <div
             className={`${styles.main__top} ${isVisible ? styles.visible : ''}`}
@@ -82,7 +68,7 @@ export default function Home() {
             <div className={styles.connect__line}></div>
             <div
               className={`${styles.animation__content} ${
-                isActive1 ? styles.active : ''
+                activeSections[0] ? styles.active : ''
               }`}
             >
               <h2 className={styles.bottom__title}>
@@ -100,7 +86,7 @@ export default function Home() {
         <div className={styles.main__feature_1}>
           <div
             className={`${styles.wrapper__animation__content} ${
-              isActive2 ? styles.active : ''
+              activeSections[1] ? styles.active : ''
             }`}
           >
             <h2 className={styles.order}>01</h2>
@@ -122,21 +108,18 @@ export default function Home() {
           </div>
           <div
             className={`${styles.video_container} ${
-              isActive3 ? styles.active : ''
+              activeSections[2] ? styles.active : ''
             }`}
           >
             <video muted autoPlay loop>
-              <source
-                src='http://localhost:3000/video/market_video.mp4'
-                type='video/mp4'
-              />
+              <source src='/video/market_video.mp4' type='video/mp4' />
             </video>
           </div>
         </div>
         <div className={styles.main__feature_2}>
           <div
             className={`${styles.wrapper__animation__content} ${
-              isActive4 ? styles.active : ''
+              activeSections[3] ? styles.active : ''
             }`}
           >
             <h2 className={styles.order}>02</h2>
@@ -157,7 +140,7 @@ export default function Home() {
           </div>
           <div
             className={`${styles.img__container} ${
-              isActive5 ? styles.active : ''
+              activeSections[4] ? styles.active : ''
             }`}
           >
             <img
@@ -170,7 +153,7 @@ export default function Home() {
         <div className={styles.main__feature_3}>
           <div
             className={`${styles.wrapper__animation__content} ${
-              isActive6 ? styles.active : ''
+              activeSections[5] ? styles.active : ''
             }`}
           >
             <h2 className={styles.order}>03</h2>
@@ -192,7 +175,7 @@ export default function Home() {
           </div>
           <div
             className={`${styles.img__container} ${
-              isActive7 ? styles.active : ''
+              activeSections[6] ? styles.active : ''
             }`}
           >
             <img
@@ -206,7 +189,7 @@ export default function Home() {
       <section className={styles.detail__feature}>
         <div
           className={`${styles.detail__feature_container} ${
-            isActive8 ? styles.active : ''
+            activeSections[7] ? styles.active : ''
           }`}
         >
           <h2 className={styles.main__title}>
@@ -298,7 +281,7 @@ export default function Home() {
       </section>
       <section
         className={`${styles.customer__review} ${
-          isActive9 ? styles.active : ''
+          activeSections[8] ? styles.active : ''
         }`}
       >
         <h2 className={styles.customer__review__title}>
@@ -339,7 +322,7 @@ export default function Home() {
       <section className={styles.lead__in__service}>
         <div
           className={`${styles.lead__in__service__container} ${
-            isActive10 ? styles.active : ''
+            activeSections[9] ? styles.active : ''
           }`}
         >
           <h2 className={styles.service__title}>
