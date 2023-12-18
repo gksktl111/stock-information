@@ -40,7 +40,10 @@ export default function MainFeatureSection({
           }`}
         >
           <video muted autoPlay loop>
-            <source src='/video/market_video.mp4' type='video/mp4' />
+            <source
+              src={process.env.PUBLIC_URL + '/video/market_video.mp4'}
+              type='video/mp4'
+            />
           </video>
         </div>
       </div>
@@ -73,8 +76,8 @@ export default function MainFeatureSection({
         >
           <img
             className={styles.analysis__img}
-            src='http://localhost:3000/img/image_analysis.png'
-            alt='ddd'
+            src={process.env.PUBLIC_URL + '/img/image_analysis.png'}
+            alt='img'
           />
         </div>
       </div>
@@ -108,8 +111,8 @@ export default function MainFeatureSection({
         >
           <img
             className={styles.analysis__img}
-            src='http://localhost:3000/img/image_likeage.png'
-            alt='ddd'
+            src={process.env.PUBLIC_URL + '/img/image_likeage.png'}
+            alt='img'
           />
         </div>
       </div>

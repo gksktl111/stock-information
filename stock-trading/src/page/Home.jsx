@@ -61,7 +61,12 @@ export default function Home() {
 
   return (
     <div className={styles.home}>
-      <section className={styles.main__section}>
+      <section
+        className={styles.main__section}
+        style={{
+          backgroundImage: 'url(' + process.env.PUBLIC_URL + '/img/bg.png)',
+        }}
+      >
         <div className={styles.main__page__top}>
           <div
             className={`${styles.main__top} ${isVisible ? styles.visible : ''}`}
@@ -134,7 +139,10 @@ export default function Home() {
               <span className={styles.bold}>4.8</span>
               /5.0
             </p>
-            <img src='/img/apple_rating.png' alt='rating' />
+            <img
+              src={process.env.PUBLIC_URL + '/img/apple_rating.png'}
+              alt='rating'
+            />
           </div>
           <div className={styles.rating__box__google}>
             <p className={styles.rating__title}>구글 플레이스토어</p>
@@ -142,7 +150,10 @@ export default function Home() {
               <span className={styles.bold}>4.9</span>
               /5.0
             </p>
-            <img src='/img/google_rating.png' alt='rating' />
+            <img
+              src={process.env.PUBLIC_URL + '/img/google_rating.png'}
+              alt='rating'
+            />
           </div>
           <div className={styles.rating__box__naver}>
             <p className={styles.rating__title}>네이버 웨일스토어</p>
@@ -150,7 +161,10 @@ export default function Home() {
               <span className={styles.bold}>5.0</span>
               /5.0
             </p>
-            <img src='/img/naver_rating.png' alt='rating' />
+            <img
+              src={process.env.PUBLIC_URL + '/img/naver_rating.png'}
+              alt='rating'
+            />
           </div>
         </div>
       </section>
@@ -175,7 +189,11 @@ export default function Home() {
         </span>
         <div className={styles.footer__container}>
           <div className={styles.git}>
-            <img src='/img/git_img.png' alt='git' className={styles.git__img} />
+            <img
+              src={process.env.PUBLIC_URL + '/img/git_img.png'}
+              alt='git'
+              className={styles.git__img}
+            />
             <a
               href='https://github.com/gksktl111'
               className={styles.footer__text}
@@ -185,7 +203,7 @@ export default function Home() {
           </div>
           <div className={styles.email__container}>
             <img
-              src='/img/gmail_img.png'
+              src={process.env.PUBLIC_URL + '/img/gmail_img.png'}
               alt='git'
               className={styles.git__img}
             />

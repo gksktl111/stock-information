@@ -18,7 +18,7 @@ export default function DetailFeatureSection({ activeSections_7 }) {
           <div className={styles.item}>
             <img
               className={styles.item__image}
-              src='http://localhost:3000/img/stock_memo.png'
+              src={process.env.PUBLIC_URL + '/img/stock_memo.png'}
               alt='img'
             />
             <p className={styles.sub__title}>종목메모</p>
@@ -31,7 +31,7 @@ export default function DetailFeatureSection({ activeSections_7 }) {
           <div className={styles.item}>
             <img
               className={styles.item__image}
-              src='http://localhost:3000/img/community.png'
+              src={process.env.PUBLIC_URL + '/img/community.png'}
               alt='img'
             />
             <p className={styles.sub__title}>커뮤니티</p>
@@ -44,7 +44,7 @@ export default function DetailFeatureSection({ activeSections_7 }) {
           <div className={styles.item}>
             <img
               className={styles.item__image}
-              src='http://localhost:3000/img/virtual_trading.png'
+              src={process.env.PUBLIC_URL + '/img/virtual_trading.png'}
               alt='img'
             />
             <p className={styles.sub__title}>모의투자</p>
@@ -57,7 +57,7 @@ export default function DetailFeatureSection({ activeSections_7 }) {
           <div className={styles.item}>
             <img
               className={styles.item__image}
-              src='http://localhost:3000/img/indicator.png'
+              src={process.env.PUBLIC_URL + '/img/indicator.png'}
               alt='img'
             />
             <p className={styles.sub__title}>매매전략</p>
@@ -70,7 +70,7 @@ export default function DetailFeatureSection({ activeSections_7 }) {
           <div className={styles.item}>
             <img
               className={styles.item__image}
-              src='http://localhost:3000/img/theme.png'
+              src={process.env.PUBLIC_URL + '/img/theme.png'}
               alt='img'
             />
             <p className={styles.sub__title}>테마발굴</p>
@@ -83,7 +83,7 @@ export default function DetailFeatureSection({ activeSections_7 }) {
           <div className={styles.item}>
             <img
               className={styles.item__image}
-              src='http://localhost:3000/img/stock_filter.png'
+              src={process.env.PUBLIC_URL + '/img/stock_filter.png'}
               alt='img'
             />
             <p className={styles.sub__title}>종목필터</p>
