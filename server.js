@@ -44,7 +44,7 @@ app.get('/api2', async function (req, res) {
       {
         params: {
           serviceKey: process.env.API_KEY,
-          numOfRows: 30,
+          numOfRows: 1,
           resultType: 'json',
           itmsNm: searchQuery,
         },
@@ -54,10 +54,13 @@ app.get('/api2', async function (req, res) {
     // 바디 내부의 아이템의 값 가져오기
     const items = response.data.response.body.items.item;
 
-    console.log(items);
+    // 종목 번호만 추출
+    const srtnCd = items.map((item) => item.srtnCd);
+
+    console.log(srtnCd);
 
     // 응답 데이터 출력 또는 클라이언트에게 전송
-    res.send(items);
+    res.send(srtnCd);
   } catch (error) {
     // 오류 처리
     console.error('Error:', error);

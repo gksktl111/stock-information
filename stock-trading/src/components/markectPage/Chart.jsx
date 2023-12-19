@@ -8,7 +8,7 @@ export default function Chart() {
 
   // 날짜를 내림차순으로 정렬
   // 종목 코드만 가져오면됨
-  const reversedChartData = [...chartData].reverse();
+  const reversedChartData = chartData;
 
   useEffect(() => {
     console.log(reversedChartData);
@@ -17,7 +17,7 @@ export default function Chart() {
   return (
     <div style={{ height: '500px' }}>
       <TradingViewWidget
-        symbol='KRX:005930' // 삼성전자의 종목 코드
+        symbol={`KRX:${reversedChartData}`} // 삼성전자의 종목 코드
         interval='D'
         theme='Light'
         locale='kr'
