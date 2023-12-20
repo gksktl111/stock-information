@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './Nav.module.css';
+import styles from './HomeHeader.module.css';
 
-export default function Nav() {
+export default function HomePageNav() {
   return (
     <header className={styles.header}>
       <div className={styles.header__container}>
-        <span className={styles.title}>로고</span>
+        <span className={styles.title}>알파스퀘어</span>
         <nav className={styles.menu__container}>
           {/* 모달창으로 띄우기 */}
           <button className={styles.login__btn}>로그인</button>

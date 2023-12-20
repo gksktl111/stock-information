@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
 import Carousel from '../components/homePage/Carousel';
+import MainFeatureSection from './../components/homePage/MainFeatureSection';
+import DetailFeatureSection from '../components/homePage/DetailFeatureSection';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
 
   // y의 높이에 따른 엑티브
   const sectionPositions = [
-    1400, 1800, 2100, 2900, 3200, 3900, 4100, 4800, 6000, 7100,
+    1400, 1800, 2100, 2900, 3200, 3900, 4100, 4800, 6000, 6800,
   ];
   const [activeSections, setActiveSections] = useState(
     Array(sectionPositions.length).fill(false)
@@ -29,6 +31,7 @@ export default function Home() {
     const newActiveSections = sectionPositions.map(
       (position) => currentScrollY >= position
     );
+
     setActiveSections(newActiveSections);
   };
 
@@ -42,9 +45,28 @@ export default function Home() {
     };
   });
 
+  const scrollToY = useRef(null);
+
+  const handleButtonClick = () => {
+    // 스크롤 이동
+    if (scrollToY.current) {
+      window.scrollTo({
+        top: scrollToY.current.offsetTop,
+        behavior: 'smooth',
+      });
+
+      console.log(scrollToY);
+    }
+  };
+
   return (
     <div className={styles.home}>
-      <section className={styles.main__section}>
+      <section
+        className={styles.main__section}
+        style={{
+          backgroundImage: 'url(' + process.env.PUBLIC_URL + '/img/bg.png)',
+        }}
+      >
         <div className={styles.main__page__top}>
           <div
             className={`${styles.main__top} ${isVisible ? styles.visible : ''}`}
@@ -61,10 +83,12 @@ export default function Home() {
             </p>
             <div className={styles.btn__wrap}>
               <button className={styles.btn__start}>무료로 시작하기</button>
-              <button className={styles.btn__more}>정보 더보기</button>
+              <button className={styles.btn__more} onClick={handleButtonClick}>
+                정보 더보기
+              </button>
             </div>
           </div>
-          <div className={styles.main__bottom}>
+          <div ref={scrollToY} className={styles.main__bottom}>
             <div className={styles.connect__line}></div>
             <div
               className={`${styles.animation__content} ${
@@ -83,201 +107,17 @@ export default function Home() {
         </div>
       </section>
       <section className={styles.main__feature}>
-        <div className={styles.main__feature_1}>
-          <div
-            className={`${styles.wrapper__animation__content} ${
-              activeSections[1] ? styles.active : ''
-            }`}
-          >
-            <h2 className={styles.order}>01</h2>
-            <div className={styles.content}>
-              <p className={styles.title}>
-                다양한 투자정보와 차트를
-                <br />
-                <span className={styles.bold}>한 화면에서 동시에.</span>
-              </p>
-              <div className={styles.description}>
-                차별화된 3단 화면 구성을 통해, 관심종목, 차트, 다양한 스마트
-                기능들까지
-                <span className={styles.text}>
-                  <br />
-                  별도의 화면 전환없이 한 화면에서 동시에 이용할 수 있습니다.
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className={`${styles.video_container} ${
-              activeSections[2] ? styles.active : ''
-            }`}
-          >
-            <video muted autoPlay loop>
-              <source src='/video/market_video.mp4' type='video/mp4' />
-            </video>
-          </div>
-        </div>
-        <div className={styles.main__feature_2}>
-          <div
-            className={`${styles.wrapper__animation__content} ${
-              activeSections[3] ? styles.active : ''
-            }`}
-          >
-            <h2 className={styles.order}>02</h2>
-            <div className={styles.content}>
-              <p className={styles.title}>
-                어려운 종목 발굴/분석을
-                <br />
-                <span className={styles.bold}>직관적이고, 간편하게.</span>
-              </p>
-              <div className={styles.description}>
-                인공지능 기반의 차별화된 발굴/분석 기능을 쉽고 간편하게
-                <br />
-                <span className={styles.text}>
-                  구현하여 주식 투자자들에게 높은 사용성을 제공합니다.
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className={`${styles.img__container} ${
-              activeSections[4] ? styles.active : ''
-            }`}
-          >
-            <img
-              className={styles.analysis__img}
-              src='http://localhost:3000/img/image_analysis.png'
-              alt='ddd'
-            />
-          </div>
-        </div>
-        <div className={styles.main__feature_3}>
-          <div
-            className={`${styles.wrapper__animation__content} ${
-              activeSections[5] ? styles.active : ''
-            }`}
-          >
-            <h2 className={styles.order}>03</h2>
-            <div className={styles.content}>
-              <p className={styles.title}>
-                나만의 투자환경을
-                <br />
-                기기에 제약없이
-                <span className={styles.bold}> 언제 어디서나.</span>
-              </p>
-              <div className={styles.description}>
-                인공지능 기반의 차별화된 발굴/분석 기능을 쉽고 간편하게
-                <br />
-                <span className={styles.text}>
-                  구현하여 주식 투자자들에게 높은 사용성을 제공합니다.
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className={`${styles.img__container} ${
-              activeSections[6] ? styles.active : ''
-            }`}
-          >
-            <img
-              className={styles.analysis__img}
-              src='http://localhost:3000/img/image_likeage.png'
-              alt='ddd'
-            />
-          </div>
-        </div>
+        <MainFeatureSection
+          activeSections_1={activeSections[1]}
+          activeSections_2={activeSections[2]}
+          activeSections_3={activeSections[3]}
+          activeSections_4={activeSections[4]}
+          activeSections_5={activeSections[5]}
+          activeSections_6={activeSections[6]}
+        />
       </section>
       <section className={styles.detail__feature}>
-        <div
-          className={`${styles.detail__feature_container} ${
-            activeSections[7] ? styles.active : ''
-          }`}
-        >
-          <h2 className={styles.main__title}>
-            투자에 필요한 모든 기능
-            <br />
-            알파스퀘어 <span className={styles.highlight}> 단 한 곳</span>에서.
-          </h2>
-          <div className={styles.wrapper}>
-            <div className={styles.item}>
-              <img
-                className={styles.item__image}
-                src='http://localhost:3000/img/stock_memo.png'
-                alt='img'
-              />
-              <p className={styles.sub__title}>종목메모</p>
-              <p className={styles.sub__decription}>
-                한 번의 메모 작성으로 모든
-                <br />
-                기기에서 실시간으로 연동됩니다.
-              </p>
-            </div>
-            <div className={styles.item}>
-              <img
-                className={styles.item__image}
-                src='http://localhost:3000/img/community.png'
-                alt='img'
-              />
-              <p className={styles.sub__title}>커뮤니티</p>
-              <p className={styles.sub__decription}>
-                태그 방식을 활용한 개방형
-                <br />
-                구조의 타임라인을 제공합니다.
-              </p>
-            </div>
-            <div className={styles.item}>
-              <img
-                className={styles.item__image}
-                src='http://localhost:3000/img/virtual_trading.png'
-                alt='img'
-              />
-              <p className={styles.sub__title}>모의투자</p>
-              <p className={styles.sub__decription}>
-                공인인증서 없이 손쉽게
-                <br />
-                포트폴리오를 구성할 수 있습니다.
-              </p>
-            </div>
-            <div className={styles.item}>
-              <img
-                className={styles.item__image}
-                src='http://localhost:3000/img/indicator.png'
-                alt='img'
-              />
-              <p className={styles.sub__title}>매매전략</p>
-              <p className={styles.sub__decription}>
-                보조지표를 기반으로 종목의
-                <br />
-                매매시점을 표시합니다.
-              </p>
-            </div>
-            <div className={styles.item}>
-              <img
-                className={styles.item__image}
-                src='http://localhost:3000/img/theme.png'
-                alt='img'
-              />
-              <p className={styles.sub__title}>테마발굴</p>
-              <p className={styles.sub__decription}>
-                각 테마별 종목들과 실시간
-                <br />
-                테마 순위를 제공합니다.
-              </p>
-            </div>
-            <div className={styles.item}>
-              <img
-                className={styles.item__image}
-                src='http://localhost:3000/img/stock_filter.png'
-                alt='img'
-              />
-              <p className={styles.sub__title}>종목필터</p>
-              <p className={styles.sub__decription}>
-                내가 원하는 기준의 투자
-                <br />
-                종목을 단번에 찾아줍니다.
-              </p>
-            </div>
-          </div>
-        </div>
+        <DetailFeatureSection activeSections_7={activeSections[7]} />
       </section>
       <section
         className={`${styles.customer__review} ${
@@ -299,7 +139,10 @@ export default function Home() {
               <span className={styles.bold}>4.8</span>
               /5.0
             </p>
-            <img src='/img/apple_rating.png' alt='rating' />
+            <img
+              src={process.env.PUBLIC_URL + '/img/apple_rating.png'}
+              alt='rating'
+            />
           </div>
           <div className={styles.rating__box__google}>
             <p className={styles.rating__title}>구글 플레이스토어</p>
@@ -307,7 +150,10 @@ export default function Home() {
               <span className={styles.bold}>4.9</span>
               /5.0
             </p>
-            <img src='/img/google_rating.png' alt='rating' />
+            <img
+              src={process.env.PUBLIC_URL + '/img/google_rating.png'}
+              alt='rating'
+            />
           </div>
           <div className={styles.rating__box__naver}>
             <p className={styles.rating__title}>네이버 웨일스토어</p>
@@ -315,7 +161,10 @@ export default function Home() {
               <span className={styles.bold}>5.0</span>
               /5.0
             </p>
-            <img src='/img/naver_rating.png' alt='rating' />
+            <img
+              src={process.env.PUBLIC_URL + '/img/naver_rating.png'}
+              alt='rating'
+            />
           </div>
         </div>
       </section>
@@ -326,7 +175,8 @@ export default function Home() {
           }`}
         >
           <h2 className={styles.service__title}>
-            알파스퀘어와 함께
+            <span className={styles.highlight}>알파스퀘어</span>
+            와 함께
             <br />
             스마트한 투자를 시작하세요.
           </h2>
@@ -334,7 +184,34 @@ export default function Home() {
         </div>
       </section>
       <footer className={styles.footer}>
-        <div className={styles.footer__container}>여기는 footer 입니다.</div>
+        <span className={styles.footer__title}>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+        </span>
+        <div className={styles.footer__container}>
+          <div className={styles.git}>
+            <img
+              src={process.env.PUBLIC_URL + '/img/git_img.png'}
+              alt='git'
+              className={styles.git__img}
+            />
+            <a
+              href='https://github.com/gksktl111'
+              className={styles.footer__text}
+            >
+              github.com/gksktl111
+            </a>
+          </div>
+          <div className={styles.email__container}>
+            <img
+              src={process.env.PUBLIC_URL + '/img/gmail_img.png'}
+              alt='git'
+              className={styles.git__img}
+            />
+            <span className={styles.footer__text}>
+              gksktl1234@kyungmin.ac.kr
+            </span>
+          </div>
+        </div>
       </footer>
     </div>
   );

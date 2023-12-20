@@ -1,0 +1,62 @@
+.highlight {
+  color: red;
+}
+
+.detail__feature_container {
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+
+  width: 65rem;
+  /* background-color: #3ad1fb; */
+  margin-top: 100px;
+
+  opacity: 0;
+  transition: all 800ms ease-in-out;
+}
+
+.detail__feature_container.active {
+  transform: translateY(-20px);
+  opacity: 1;
+}
+
+.main__title {
+  font-size: 3rem;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3개의 열을 가진 그리드 */
+  grid-gap: 1.8rem; /* 그리드 아이템 간의 간격, 필요에 따라 조절 */
+
+  margin-top: 50px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+
+  width: 16rem;
+
+  padding: 10px; /* 각각의 그리드 아이템에 여백을 추가, 필요에 따라 조절 */
+  text-align: center; /* 텍스트를 가운데 정렬 */
+}
+
+.item__image {
+  width: 13rem;
+  margin: auto;
+}
+
+.sub__title {
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  margin: 15px 0 15px 0;
+}
+
+.sub__decription {
+  font-size: 1.2rem;
+
+  color: #757575;
+}
