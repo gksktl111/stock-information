@@ -1,8 +1,65 @@
-.nav__container {
+.bookmark__nav__container {
   margin-top: 4rem;
 
-  width: 15rem;
-  height: 41.5rem;
+  width: 15%;
 
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
+
+  border-right: solid 1px rgb(212, 212, 212);
+}
+
+.bookmark__nav__container.close {
+  width: 3%;
+}
+
+.bookmark__header {
+  display: flex;
+
+  width: 100%;
+  height: 6%;
+
+  /* background-color: blue; */
+
+  padding: 5px;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  color: rgb(85, 85, 85);
+
+  align-items: center;
+}
+
+.title__icon {
+  font-size: 2.4rem;
+}
+
+.bookmark__nav__toggle {
+  display: flex;
+  width: 40px;
+  height: 40px;
+
+  background-color: transparent;
+
+  color: rgb(85, 85, 85);
+
+  font-size: 1.6rem;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.bookmark__nav__toggle:hover {
+  background-color: rgb(240, 240, 240);
 }

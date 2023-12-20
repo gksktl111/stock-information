@@ -13,6 +13,7 @@ export default function Markect() {
       <div className={styles.container}>
         <BookmarkNav />
         <section className={styles.chart__container}>
+          <div>asd</div>
           <Chart />
         </section>
         <MainNav />

@@ -18,7 +18,7 @@ export default function Chart() {
     <div style={{ height: '100%' }}>
       <TradingViewWidget
         symbol={`KRX:${reversedChartData}`} // 삼성전자의 종목 코드
-        interval='1'
+        interval='D'
         theme='Light'
         locale='kr'
         autosize

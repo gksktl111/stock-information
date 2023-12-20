@@ -2,7 +2,7 @@ import React, { createContext, useContext, useReducer } from 'react';
 
 // 초기 상태
 const initialState = {
-  chartData: ['005930'], // 여기에 차트 데이터를 저장합니다.
+  chartData: '005930', // 여기에 차트 데이터를 저장합니다.
 };
 
 // 액션 타입 정의
